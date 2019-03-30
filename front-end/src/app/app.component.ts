@@ -1,10 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService} from './data.service';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [DataService]
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
   title = 'my-website';
+  users;
+
+  constructor(private http: HttpClient , private dataService: DataService) { }
+
+  ngOnInit() {
+    // this.dataService.retrieveAllUsers().subscribe((users) => this.users = users);
+    this.http.get('http://localhost:3000/users.json')
+             .subscribe((data) => this.users = {
+               userName: data['name'],
+               userEmail: data['email']
+             });
+  }
+
+  printUsersToConsole() {
+    console.log(this.users);
+  }
+
 }
