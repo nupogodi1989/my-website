@@ -22,15 +22,11 @@ export class AppComponent implements OnInit {
     this.http.get('http://localhost:3000/users.json')
              .subscribe((data) => {
                this.users = data;
-               console.log(data);
-               console.log(data['Users']);
-               console.log(this.users.filter(user => user.name));
              });
   }
 
   printUsersToConsole() {
     this.userName = this.users.map(user => user.name);
-    console.log(this.userName);
   }
 
 }
