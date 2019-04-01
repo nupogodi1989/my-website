@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.retrieveAllUsers().subscribe((data) => this.users = data);
-    // this.userNames = this.users.map(user => user.name);
+    this.userNames = this.users.map(user => user.name);
     // this.http.get('http://localhost:3000/users.json')
     //          .subscribe((data) => {
     //            this.users = data;
