@@ -56,16 +56,21 @@
     <hr>
 
     <h2>USERS</h2>
-    <span>{{printUsersToConsole()}}</span>
-    <!--<span *ngFor="let user of users">-->
+    <div>{{setUsers()}}
+      <span *ngFor="let userName of userNames">
+        <ul>
+          <li>{{ userName | json }}</li>
+        </ul>
+      </span>
+    </div>
+      <!--<h2>{{ userName | json }}</h2>-->
+    <!--</span>-->
       <!--<ul *ngFor="let name of users">-->
         <!--<li>{{ name | json }}</li>-->
       <!--</ul>-->
-    <h2>{{ userName | json }}</h2>
       <!--<ul *ngFor="let name of user.userName">-->
         <!--<li>{{ name | json }}</li>-->
       <!--</ul>-->
-    <!--</span>-->
 
   </div>
   <!-- New container-->
