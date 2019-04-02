@@ -11,31 +11,20 @@ import { HttpClient} from '@angular/common/http';
 
 export class AppComponent implements OnInit {
   title = 'my-website';
-  users;
-  userNames;
-  userEmail;
+  private userNames: object;
+  private userEmails: object;
 
-  constructor(private http: HttpClient , private dataService: DataService) {
-    // this.dataService.retrieveAllUsers().subscribe((data) => this.users = data);
-    // this.userNames = this.users.map(user => user.name);
-  }
+  constructor(private http: HttpClient , private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.retrieveAllUsers().subscribe((data) => this.users = data);
-    this.userNames = this.users.map(user => user.name);
-    // this.http.get('http://localhost:3000/users.json')
-    //          .subscribe((data) => {
-    //            this.users = data;
-    //          });
+    this.dataService.retrieveAllUsers().subscribe(
+      (users) => this.setUserData(users)
+    );
   }
 
-  setUsers() {
-    this.userNames = this.users.map(user => user.name);
-  }
-  printUsersToConsole() {
-    console.log(this.users);
-     this.userNames = this.users.map(user => user.name);
-    console.log(this.userNames);
+  setUserData(users) {
+    this.userNames = users.map(user => user.name);
+    this.userEmails = users.map(user => user.email);
   }
 
 }
