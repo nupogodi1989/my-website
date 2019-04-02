@@ -53,7 +53,7 @@ header {
   background-size: cover;
   margin-bottom: 4em;
   text-align: center;
-  height: 500px;
+  height: 115px;
 
 }
 
@@ -65,7 +65,7 @@ header h1 {
   opacity: 1;
   text-shadow: 0 3px 0 rgba(0,0,0, 0.5);
   position: relative;
-  top: 370px;
+  top: 25px;
   font-weight: 700;
 }
 
@@ -76,7 +76,7 @@ header p {
   padding-top: .5em;
   opacity: .9;
   position: relative;
-  top: 360px;
+  top: 20px;
 }
 
 section h1 {
